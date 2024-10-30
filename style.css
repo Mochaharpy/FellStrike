@@ -1,0 +1,252 @@
+/* CSS styles */
+
+body {
+  margin: 0;
+  background-color: lightgrey;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#play {
+  display: none;
+}
+
+.button {
+  position: relative; /* Position relative for the pseudo-element */
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 0; /* Add some spacing between buttons */
+  border: none; /* Remove default border */
+  background-color: grey; /* Default background color */
+  color: white; /* Text color */
+  outline: none; /* Remove outline on focus */
+  transition: color 0.3s; /* Smooth transition for text color */
+}
+
+.button:hover {
+  color: white; /* Keep text color white on hover */
+}
+
+.button::after {
+  content: ""; /* Pseudo-element for lightening effect */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3); /* light overlay */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Smooth transition for overlay */
+}
+
+button:hover::after {
+  opacity: 1; /* Show the overlay on hover */
+}
+
+
+#header {
+  height: 40px;
+  width: 100vw;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#title {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+  line-height: 40px;
+  text-align: left;
+  left: 5px;
+  font-size: 6vh;
+ }
+
+#gems {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  z-index: 2;
+  position: relative;
+  margin: 0;
+  line-height: 40px;
+  text-align: right;
+  font-size: 6vh;
+  right: 5px;
+}
+
+#container {
+  position: absolute;
+  align-self: center;
+  width: 80vw;
+  height: 60vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 14%;
+  left: 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#left {
+  color: white;
+  font-size: 150%;
+  font-family: 'Press Start 2P', cursive;
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  left: 0px;
+}
+
+.card {
+  width: 28vw;
+  height: 50vh;
+  position: absolute;
+  left: 25vw;
+  top: 5vh;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+
+.card.active {
+  width: 28vw; /* Larger size for the active card */
+  height: 50vh; /* Larger size for the active card */
+  z-index: 1; /* Bring the active card to the front */
+  transform: translateX(0); /* Center the active card */
+}
+
+.card.inactive {
+  display: none;
+}
+
+.card-view {
+  display: flex;
+  margin: 0px;
+  position: relative;
+  left: 0px;
+  background-color: rgba(0, 0, 0, .4);
+  width: 28vw;
+  max-width: 250px;
+  height: 15vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#attributesContainer {
+  position: relative;
+}
+
+.attributes {
+  position: relative;
+  padding: 10px;
+}
+
+.type {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#right {
+  color: white;
+  font-size: 150%;
+  font-family: 'Press Start 2P', cursive;
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  right: 0px;
+}
+
+#start {
+  position: absolute;
+  margin: 0;
+  right: 10px;
+  bottom: 10px;
+  width: 20vw;
+  height: 13vh;
+  font-size: 3vw;
+}
+
+#deck {
+  height: 50px;
+  width: 30vw;
+  background: rgba(250, 250, 250, 0.4);
+  position: absolute;
+  bottom: 0;
+  left: 33%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.card-deck {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background-color: white;
+}
+
+.attributes {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#settings {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+#settings-header {
+  height: 40px;
+  width: 100vw;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#setting-title {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  z-index: 4;
+  position: relative;
+  margin: 0;
+  line-height: 40px;
+  text-align: center;
+  font-size: 6vh;
+}
+
+#close-settings {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#abort {
+  margin: 0;
+  background-color: red;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 20vw;
+  height: 12vh;
+  font-size: 3vw;
+}
